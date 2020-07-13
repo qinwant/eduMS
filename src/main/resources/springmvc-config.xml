@@ -13,4 +13,13 @@
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!--配置日期转化器-->
+    <bean id="service" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <array>
+                <bean class="com.goktech.converter.StringToDateConverter"></bean>
+            </array>
+        </property>
+    </bean>
+    <mvc:annotation-driven conversion-service="service"></mvc:annotation-driven>
 </beans>
